@@ -1,7 +1,7 @@
 <template>
   <main class="container mx-auto px-4 py-20">
     <div class="max-w-4xl text-left space-y-8">
-      <h1 class="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400 tracking-tight leading-tight">
+      <h1 class="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400 tracking-tight leading-tight font-orbitron animate-title">
         Intelligent Research AI
       </h1>
       <p class="text-xl text-gray-500/90 max-w-2xl">
@@ -21,3 +21,26 @@
     </div>
   </main>
 </template>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.animate-title {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>

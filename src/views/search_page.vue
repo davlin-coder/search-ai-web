@@ -1,7 +1,7 @@
 <template>
   <main class="container mx-auto px-4 py-20">
     <div class="max-w-4xl mx-auto text-center space-y-8">
-      <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400 tracking-tight leading-tight">
+      <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400 tracking-tight leading-tight font-orbitron animate-title">
         Welcome to Search AI
       </h1>
       <div class="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 shadow-lg">
@@ -103,7 +103,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const query = ref('')
 const enableResearch = ref(false)
 const enableThink = ref(false)
-const selectedModel = ref('GPT-4')
+const selectedModel = ref('Deepseek')
 const isModelDropdownOpen = ref(false)
 const currentPlaceholder = ref('')
 
@@ -129,7 +129,7 @@ const typeNextChar = () => {
       currentCharIndex = 0
       currentQueryIndex = (currentQueryIndex + 1) % exampleQueries.length
       currentPlaceholder.value = ''
-    }, 1000) // 展示完成后停顿1秒
+    }, 1000)
   }
 }
 
@@ -138,7 +138,7 @@ const startTypewriterAnimation = () => {
     currentQueryIndex = 0
     currentCharIndex = 0
     currentPlaceholder.value = ''
-    typewriterInterval = window.setInterval(typeNextChar, 50)
+    typewriterInterval = window.setInterval(typeNextChar, 20)
   }
 }
 
@@ -160,19 +160,9 @@ onUnmounted(() => {
 
 const models = [
   {
-    value: 'gpt-4',
-    label: 'GPT-4',
+    value: 'Deepseek',
+    label: 'deekseep',
     description: '最强大的模型，适用于复杂任务和深度研究'
-  },
-  {
-    value: 'gpt-3.5',
-    label: 'GPT-3.5',
-    description: '快速高效的模型，适合日常查询和分析'
-  },
-  {
-    value: 'claude',
-    label: 'Claude',
-    description: '擅长学术研究和长文本处理的专业模型'
   }
 ]
 
@@ -190,3 +180,27 @@ const handleSearch = () => {
   })
 }
 </script>
+```
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.animate-title {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
