@@ -135,7 +135,10 @@ const typeNextChar = () => {
 
 const startTypewriterAnimation = () => {
   if (!typewriterInterval) {
-    typewriterInterval = window.setInterval(typeNextChar, 50) // 加快打字速度到50ms
+    currentQueryIndex = 0
+    currentCharIndex = 0
+    currentPlaceholder.value = ''
+    typewriterInterval = window.setInterval(typeNextChar, 50)
   }
 }
 
@@ -143,6 +146,7 @@ const stopTypewriterAnimation = () => {
   if (typewriterInterval) {
     clearInterval(typewriterInterval)
     typewriterInterval = null
+    currentPlaceholder.value = ''
   }
 }
 
