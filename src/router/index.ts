@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LandingPage from "../views/landing_page.vue";
 import LoginPage from "../views/login_page.vue";
+import RegisterPage from "../views/register_page.vue";
 import SearchPage from "../views/search_page.vue";
 import { requireAuth, redirectIfAuthenticated } from './auth-guard';
 
@@ -16,6 +17,12 @@ const router = createRouter({
       path: "/login",
       name: "login",
       component: LoginPage,
+      beforeEnter: redirectIfAuthenticated
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: RegisterPage,
       beforeEnter: redirectIfAuthenticated
     },
     {
