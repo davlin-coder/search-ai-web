@@ -3,6 +3,8 @@ FROM node:18-alpine as builder
 
 WORKDIR /app
 
+RUN npm i -g mirror-config-china --registry=https://registry.npm.taobao.org
+
 # 安装pnpm
 RUN npm install -g pnpm
 
