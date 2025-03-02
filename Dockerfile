@@ -3,16 +3,14 @@ FROM node:18-alpine as builder
 
 WORKDIR /app
 
-RUN npm i -g mirror-config-china --registry=https://registry.npm.taobao.org
-
 # 安装pnpm
-RUN npm install -g pnpm
+RUN npm install -g pnpm --registry=https://registry.npmmirror.com
 
 # 复制项目文件
 COPY package.json pnpm-lock.yaml ./
 
 # 安装依赖
-RUN pnpm install
+RUN pnpm install --registry=https://registry.npmmirror.com
 
 # 复制源代码
 COPY . .
