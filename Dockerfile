@@ -32,7 +32,6 @@ ENV DOMAIN=localhost
 
 # 暴露端口
 EXPOSE 80
-EXPOSE 443
 
 # 启动Caddy
 CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]

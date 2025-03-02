@@ -1,6 +1,8 @@
 {
     # 允许环境变量替换
     admin off
+    auto_https off # 禁用自动HTTPS
+    http_port 80 # 只监听80端口
 }
 
 {$DOMAIN:localhost} {
